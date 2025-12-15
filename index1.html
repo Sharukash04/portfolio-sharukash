@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharukash N | AI & Data Science Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+            --accent-color: #3b82f6;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .profile-img i {
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .fallback-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header-text .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-color);
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-category ul {
+            list-style-type: none;
+        }
+        
+        .skill-category li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+        
+        .skill-category li i {
+            color: var(--primary-color);
+            margin-right: 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Education Section */
+        .education-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .education-header h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .degree-info {
+            color: var(--gray-color);
+            font-size: 1.1rem;
+        }
+        
+        .cgpa {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+        }
+        
+        .project-img i {
+            font-size: 4rem;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .project-content p {
+            color: var(--gray-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-features {
+            list-style-type: none;
+        }
+        
+        .project-features li {
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .project-features li i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            margin-top: 0.2rem;
+        }
+        
+        /* Hackathons Section */
+        .hackathons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .hackathon-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            width: 300px;
+            transition: var(--transition);
+        }
+        
+        .hackathon-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .hackathon-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .hackathon-card ul {
+            list-style-type: none;
+        }
+        
+        .hackathon-card li {
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hackathon-card li i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Languages Section */
+        .languages-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .language-item {
+            background-color: white;
+            padding: 1.2rem 2rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 140px;
+            transition: var(--transition);
+        }
+        
+        .language-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .language-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+        
+        .language-name {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .declaration {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            font-style: italic;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(37, 99, 235, 0.95);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+        
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: #dbeafe;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .education-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: rgba(37, 99, 235, 0.98);
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+                gap: 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 1rem 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .profile-img i {
+                font-size: 4rem;
+            }
+            
+            .header-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .skill-category, .education-item, .about-content {
+                padding: 1.5rem;
+            }
+            
+            .hackathon-card, .language-item {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        /* Active section highlighting */
+        .section.active {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">Sharukash N</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#hackathons" class="nav-link">Hackathons</a></li>
+                <li class="nav-item"><a href="#languages" class="nav-link">Languages</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-img">
+                    <img src="nsk.jpg" alt="Sharukash N" onerror="this.style.display='none'; document.querySelector('.fallback-icon').style.display='flex';">
+                    <div class="fallback-icon" style="display: none;">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+                <div class="header-text">
+                    <h1>Sharukash N</h1>
+                    <p class="tagline">Aspiring AI & Data Science Professional</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Trichy, Tamil Nadu</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91-8807312346</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>sharukash01@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/sharukash-n-181098331" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/Sharukash04" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:sharukash01@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Career Objective</h2>
+            </div>
+            <div class="about-content">
+                <p>Motivated and detail-oriented aspiring AI & Data Science professional with a strong foundation in programming, networking, and front-end development. Seeking internship or entry-level opportunities to apply technical skills, gain hands-on industry experience, and grow as a technology professional.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="education-item">
+                <div class="education-header">
+                    <h3>JJ College of Engineering and Technology</h3>
+                    <div class="cgpa">CGPA: 6.84</div>
+                </div>
+                <div class="degree-info">
+                    <p><strong>B. Tech Artificial Intelligence and Data Science</strong></p>
+                    <p>2024 - 2028</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <ul>
+                        <li><i class="fas fa-caret-right"></i> C</li>
+                        <li><i class="fas fa-caret-right"></i> C++</li>
+                        <li><i class="fas fa-caret-right"></i> Java</li>
+                        <li><i class="fas fa-caret-right"></i> Python</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-globe"></i> Web Technologies</h3>
+                    <ul>
+                        <li><i class="fas fa-caret-right"></i> HTML</li>
+                        <li><i class="fas fa-caret-right"></i> CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Databases</h3>
+                    <ul>
+                        <li><i class="fas fa-caret-right"></i> MySQL (Basics)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools</h3>
+                    <ul>
+                        <li><i class="fas fa-caret-right"></i> VS Code</li>
+                        <li><i class="fas fa-caret-right"></i> GitHub</li>
+                        <li><i class="fas fa-caret-right"></i> Git</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img" style="background-color: #e0f2fe;">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Smart Food Redistribution</h3>
+                        <p>Front-end project for an intelligent agent system to connect surplus food with NGOs in real time.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Designed user-friendly interfaces for donors, NGOs, and volunteers</li>
+                            <li><i class="fas fa-check-circle"></i> Implemented transparent tracking to monitor food movement</li>
+                            <li><i class="fas fa-check-circle"></i> Web and mobile platforms</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-color: #fef3c7;">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>T-shirt E-Commerce Website</h3>
+                        <p>Front-end project for a responsive e-commerce website focused on clean UI and user-friendly design.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Designed responsive website using HTML and CSS</li>
+                            <li><i class="fas fa-check-circle"></i> Created product cards, About Us, Contact pages</li>
+                            <li><i class="fas fa-check-circle"></i> Focused on clean UI and user-friendly design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hackathons Section -->
+    <section id="hackathons" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hackathons & Events</h2>
+            </div>
+            <div class="hackathons-container">
+                <div class="hackathon-card">
+                    <h3>KAISER 2025</h3>
+                    <p>Hindusthan College of Engineering and Technology</p>
+                    <ul>
+                        <li><i class="fas fa-code"></i> CODE AND LOAD</li>
+                        <li><i class="fas fa-search"></i> WEEB QUEST</li>
+                        <li><i class="fas fa-chalkboard-teacher"></i> Workshop: Building Your First ML Model</li>
+                    </ul>
+                </div>
+                <div class="hackathon-card">
+                    <h3>ASTHRA 2k25</h3>
+                    <p>Karpagam Institute of Technology</p>
+                    <ul>
+                        <li><i class="fas fa-laptop-code"></i> TECH MASTER</li>
+                        <li><i class="fas fa-file-alt"></i> PAPER PRESENTATION</li>
+                        <li><i class="fas fa-brain"></i> BRAIN TWISTER</li>
+                    </ul>
+                </div>
+                <div class="hackathon-card">
+                    <h3>IndiaAl Impact Gen-Al Hackathon</h3>
+                    <p>Gen-Al Hackathon Participation</p>
+                    <ul>
+                        <li><i class="fas fa-robot"></i> AI & Machine Learning Focus</li>
+                        <li><i class="fas fa-users"></i> Team Collaboration</li>
+                        <li><i class="fas fa-lightbulb"></i> Innovative Solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section id="languages" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Languages</h2>
+            </div>
+            <div class="languages-container">
+                <div class="language-item">
+                    <div class="language-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="language-name">English</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="language-name">Tamil</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="language-name">Malayalam</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="language-name">Hindi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="declaration">
+                <p>I hereby declare that the information above is true to the best of my knowledge.</p>
+            </div>
+            <p>&copy; 2025 Sharukash N. All rights reserved.</p>
+            <p class="copyright">AI & Data Science Portfolio</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Simple script for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.skill-category, .project-card, .hackathon-card, .language-item');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }
+            });
+            
+            // Highlight active section in navigation
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Set initial state for animation
+        document.querySelectorAll('.skill-category, .project-card, .hackathon-card, .language-item').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        // Trigger once on load
+        window.addEventListener('load', animateOnScroll);
+        
+        // Fix for image loading error - show fallback icon if image fails to load
+        window.addEventListener('DOMContentLoaded', () => {
+            const profileImg = document.querySelector('.profile-img img');
+            const fallbackIcon = document.querySelector('.fallback-icon');
+            
+            // Check if image loaded successfully
+            if (profileImg && profileImg.complete && profileImg.naturalHeight === 0) {
+                profileImg.style.display = 'none';
+                if (fallbackIcon) fallbackIcon.style.display = 'flex';
+            }
+        });
+    </script>
+</body>
+</html>
